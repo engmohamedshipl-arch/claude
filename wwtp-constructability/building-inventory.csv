@@ -1,0 +1,15 @@
+id,label,structure_type,est_length_m,est_width_m,est_footprint_area_m2,shape,est_height_stories,apparent_condition,occupied_in_use,demolish_retain_relocate,access_notes,constructability_notes,confidence,source
+A,,,,,,,,,,,,,,awaiting-image
+B,,,,,,,,,,,,,,awaiting-image
+C,,,,,,,,,,,,,,awaiting-image
+D,,,,,,,,,,,,,,awaiting-image
+E,,,,,,,,,,,,,,awaiting-image
+,,,,,,,,,,,,,,
+# COLUMN GUIDE,,,,,,,,,,,,,,
+# id: short key matching the annotated image,,,,,,,,,,,,,,
+# structure_type: e.g. primary clarifier / aeration tank / sludge drying bed / control building / pump station / blower house / admin / workshop / storage / chlorine contact / digester / open yard,,,,,,,,,,,,,,
+# est_footprint_area_m2: estimated from scaled imagery (plan footprint),,,,,,,,,,,,,,
+# shape: rectangular / circular / irregular,,,,,,,,,,,,,,
+# apparent_condition: good / fair / poor / derelict — from imagery only,,,,,,,,,,,,,,
+# demolish_retain_relocate: planning intent for the new build,,,,,,,,,,,,,,
+# confidence: high / med / low — depends on image scale + clarity,,,,,,,,,,,,,,
