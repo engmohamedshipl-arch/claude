@@ -784,7 +784,7 @@ for (p, c), rr in trow.items():
     chain_ref = None
     if c in CHAINED and p in chain_prev:
         chain_ref = trow[(chain_prev[p], c)]
-        terms.append(f'R{chain_ref}')
+        terms.append(f'IF(K{rr}>0,R{chain_ref},0)')
         put(wsT, rr, 19, f'{chain_prev[p]}-{c}', blue)
     else:
         put(wsT, rr, 19, None)

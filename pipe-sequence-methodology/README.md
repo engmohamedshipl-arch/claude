@@ -8,6 +8,15 @@
 
 It is not a design, a temporary-works design or a construction approval.
 
+## Schedule files
+
+| File | Open with | Content |
+|---|---|---|
+| `Alex-West-Pipe-Works.xer` | Primavera P6: File > Import > XER, as a new project, then F9 to schedule | 2,163 activities, 5,395 relationships (SS + FF ladders kept), WBS Project > Front > Line > Package, calendar Sat-Thu 8 h, start-on-or-after constraints for the gates, notes and user-defined fields (front, line, package, code, quantity) |
+| `Alex-West-Pipe-Works.xml` | MS Project: File > Open, choose XML | Same activities and WBS. 3,557 links, because MS Project allows only one link per pair of tasks: where the workbook has an SS + FF pair, the link that drives the workbook dates is kept |
+
+Both files come from the recalculated workbook (`scripts/export_schedule.py`), with data date 1 Dec 2026. Lags are converted to working days. Zero-duration placeholders (48 activities, e.g. sheet piling on open-cut packages) are removed and their logic carried through. A forward pass on the exported logic finishes on 13 Sep 2027, against the workbook's 18 Sep 2027 (working-day rounding). After changing inputs, re-export the files so they stay in step with the workbook.
+
 ## Sheets
 
 | Sheet | Content |
@@ -30,4 +39,8 @@ python scripts/extract_aeration_piles.py <Alex-West-Combined-Coordination.blend>
 python scripts/build.py <Alex-West-Pipe-Execution-Packages-All-Lines.xlsx> inputs/aer_piles.json inputs/aer_weekly.json inputs/manifest.json Alex-West-Pipe-Sequence-Methodology.xlsx
 ```
 
-After building, recalculate the workbook in Excel or LibreOffice: openpyxl writes the formulas but no calculated values.
+After building, recalculate the workbook in Excel or LibreOffice: openpyxl writes the formulas but no calculated values. Then export:
+
+```
+python scripts/export_schedule.py Alex-West-Pipe-Sequence-Methodology.xlsx Alex-West-Pipe-Works.xer Alex-West-Pipe-Works.xml   # needs: pip install mpxj jpype1 openpyxl, and Java
+```
